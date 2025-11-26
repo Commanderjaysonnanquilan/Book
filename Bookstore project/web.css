@@ -1,0 +1,125 @@
+:root{
+  --bg: #f4eee0;        /* soft parchment */
+  --panel: #e3d6bb;     /* light aged paper */
+  --surface: #fffaf0;   /* page/card surface */
+  --text: #2b1f15;      /* ink / warm dark brown */
+  --muted: #7b6a59;     /* worn leather / subdued */
+  --accent: #6b2f1f;    /* mahogany (bookshelf spine) */
+  --accent-2: #26482e;  /* deep library green (curtains) */
+  --gold: #bfa45a;      /* brass / bookmark */
+  --shadow: rgba(20,18,16,0.06);
+}
+
+/* Navigation Bar Styling - Fixed at Top */
+nav {
+    background: linear-gradient(180deg, #7a3f2f 0%, #4a281c 100%);
+    color: #fff;
+    padding: 8px clamp(4px, 2vw, 12px);
+    box-shadow: 0 2px 8px var(--shadow);
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(2px, 1vw, 4px);
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: clamp(4px, 1vw, 8px);
+    border-radius: 5px;
+    transition: background-color 0.22s, transform 0.18s, box-shadow 0.18s;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(24px, 8vw, 32px);
+    height: clamp(24px, 8vw, 32px);
+    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    min-touch-target: 44px;
+}
+
+nav a:hover,
+nav a:focus{
+    background-color: rgba(255,255,255,0.05);
+    box-shadow: 0 4px 14px rgba(74,40,28,0.18);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+nav a[aria-current="page"],
+nav a.active {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(38,72,46,0.12);
+}
+
+/* Accessibility focus-visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(191,162,90,0.22);
+  outline-offset: 3px;
+}
+
+/* Responsive tweaks - Tablet */
+@media (max-width: 768px) {
+  nav {
+    padding: 8px clamp(4px, 3vw, 10px);
+    gap: clamp(2px, 1.5vw, 3px);
+  }
+
+  nav a {
+    width: clamp(28px, 7vw, 32px);
+    height: clamp(28px, 7vw, 32px);
+    font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+    padding: clamp(3px, 0.8vw, 6px);
+  }
+}
+
+/* Responsive tweaks - Mobile */
+@media (max-width: 640px) {
+  nav {
+    padding: 6px clamp(2px, 2vw, 8px);
+    gap: clamp(1px, 0.8vw, 2px);
+  }
+
+  nav a {
+    width: clamp(24px, 6vw, 28px);
+    height: clamp(24px, 6vw, 28px);
+    font-size: clamp(0.6rem, 1vw, 0.7rem);
+    padding: clamp(2px, 0.5vw, 4px);
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+  nav {
+    padding: 6px 4px;
+    gap: 1px;
+  }
+
+  nav a {
+    width: 24px;
+    height: 24px;
+    font-size: 0.6rem;
+    padding: 2px;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  nav a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
